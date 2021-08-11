@@ -1,0 +1,13 @@
+sudo npm install truffle -g
+truffle init
+
+1. truffle-config > compilers > solc > (change version) i.e // version: "0.5.1",
+
+2. In contracts folder add the created contract made in Solidity
+
+3. npm init -y
+
+4. npm install @openzeppelin/test-helpers //you can check on dependenecies that the packages have been installed
+
+5. enter the test folder and create a (test.js) file
+-See test.js syntax in this repo
