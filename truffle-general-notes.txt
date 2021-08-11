@@ -1,0 +1,96 @@
+(siempre que se vaya a instalar algo usar cuando este la tilde y usar sudo y global )
+
+sudo npm install truffle -g
+
+--------------------------------------------------------EASY-----------------------------------------------------------
+
+truffle compile (compilar los contratos)
+
+
+En migrations: (importar el nombre del contrato y en require (va el nombre del contrato de solidity))
+
+const HelloWorld = artifacts.require("Helloworld"); //nombre del contrato en require
+ 
+module.exports = function (deployer) {
+ deployer.deploy(Helloworld);
+};
+ 
+
+//para correr el código de arriba
+
+truffle develop (abre una chain en la network (local ethereum node))
+(crea las 10 cuentas con su private key)
+
+truffle migrate (corre todos los migration files) (DEPLOY THE CONTRACTS (como si fuera en remix))
+
+--------------------------------------------------------EASY-----------------------------------------------------------
+
+--------------------------------------------------------HARD----------------------------------------------------------
+
+Para interactuar con el contrato que ya se deloy se hace lo siguiente:
+let instance = await Helloworld.deployed() (el helloworld es de como lo declaras en la const donde haces el require)
+instance.hello()   (el hello() es una función dentro del contrato de Helloworld)
+
+el instance ahora es un objeto y si quieres llamar una funcion pones lo que hay dentro del contrato 
+
+let instance = await prueba.deployed()
+instance.función((puede tener parametros))
+
+
+migrate --reset (re deploys contracts)
+
+
+
+Al usar constructor y poner diferentes parámetros 
+ 
+const prueba = artifacts.require("pruebacontrato");
+ 
+module.exports = function (deployer) {
+ deployer.deploy(prueba, "es el constructor"); //depende cuantos argumentos tenga el constructor
+};
+
+
+z.setMessage("string", {value: web3.utils.toWei("2","ether")})
+
+cuando se quiera usar algún parámetro se debe dar como objeto, por ejemplo
+
+{value: web3.utils.toWei("2","ether")}
+{from: account[0]}
+
+{value: web3.utils.toWei("2","ether"), from: account[0]}
+
+
+
+Usando mocha 
+//pruebas y pruebas.deployed() (deben contener el mismo nombre )
+const pruebas = artifacts.require("Pruebas");
+ 
+contract("Prueba", accounts => {
+   it("should put a constructor", async () => {
+       let instance =  await pruebas.deployed();
+       let message = await instance.seeMessage();
+ 
+       assert.equal(message,"constructor");
+ 
+})
+ 
+ 
+})
+
+
+npx mnemonics (crea un private key )
+
+para configurar en truffle (“se debe editar la linea donde sale el mnemonic y exportarlo ”)
+línea 25 
+const mnemonic = require('./secrets.json').mnemonic;
+
+linea 21 HD wallet (primero instalar y uncomment)
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+
+
+ir a networks y luego poner la que se vaya a usar en este caso robsten
+
+
+truffle console --network robsten (conectarse a nodo de robsten)
+
+await web3.eth.getAccounts()
