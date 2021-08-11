@@ -10,4 +10,7 @@ truffle init
 4. npm install @openzeppelin/test-helpers //you can check on dependenecies that the packages have been installed
 
 5. enter the test folder and create a (test.js) file
--See test.js syntax in this repo
+-See syntax-of-testjs-file.js syntax in this repo
+-See example of Truffle-test.js to get the notion of testing smart contracts
+
+
