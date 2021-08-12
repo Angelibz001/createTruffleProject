@@ -12,5 +12,10 @@ truffle init
 5. enter the test folder and create a (test.js) file
 -See syntax-of-testjs-file.js syntax in this repo
 -See example of Truffle-test.js to get the notion of testing smart contracts
+IMPORTANT FIRST IS THE TEST THEN THE MIGRATIONS DEPLOYER
 
+6. Important notes (if is a read only function you can use const (name of const)) if it changes the state then you only need to use await syntax.
+
+7. create a js in the migrations folder see syntax in 2_test_migration.js
+8. 
 
